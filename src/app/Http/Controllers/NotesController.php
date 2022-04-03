@@ -103,6 +103,9 @@ class NotesController extends Controller
     public function deleteUser(Request $request){
         // リクエストされたユーザーのIDを取得し、それを削除
         DB::table('users')->where('id', $request->id)->delete();
+        // ユーザーIDに関連するメモを全て削除
+        DB::table('notes')->where('user_id', $request->id)->delete();
+        
         // $user = Users::find($request->input('id'));
         // $user->delete();
         // その後、ホーム画面に遷移
