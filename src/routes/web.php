@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\NotesController@index');
 
-// 以下が編集分です
 Route::get('/notes', 'App\Http\Controllers\NotesController@index');
 
 Route::get('/notes/mynote', 'App\Http\Controllers\NotesController@mynote');
@@ -30,6 +29,8 @@ Route::post('/notes/mynote/edit', 'App\Http\Controllers\NotesController@update')
 Route::get('/notes/mynote/delete', 'App\Http\Controllers\NotesController@delete');
 Route::post('/notes/mynote/delete', 'App\Http\Controllers\NotesController@remove');
 
-Auth::routes();
+Route::get('/signout', 'App\Http\Controllers\NotesController@signout');
+Route::post('/signout', 'App\Http\Controllers\NotesController@deleteUser');
 
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

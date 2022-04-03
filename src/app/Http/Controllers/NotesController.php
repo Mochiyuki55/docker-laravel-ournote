@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Note; // notesテーブルをモデル化した、Noteモデルを使う
+// use App\Models\Users; // ユーザーの論理削除用のモデル
+use Illuminate\Support\Facades\DB; // DBファサードを使用する宣言
 use Illuminate\Support\Facades\Auth;
+
 
 class NotesController extends Controller
 {
@@ -88,5 +91,21 @@ class NotesController extends Controller
     public function remove(Request $request){
         Note::find($request->id)->delete();
         return redirect('/home');
+    }
+
+    // 退会画面表示
+    public function signout(Request $request){
+        // ユーザー情報を取得
+        $user = Auth::user();
+        return view('auth.signout', ['user' => $user]);
+    }
+
+    public function deleteUser(Request $request){
+        // リクエストされたユーザーのIDを取得し、それを削除
+        DB::table('users')->where('id', $request->id)->delete();
+        // $user = Users::find($request->input('id'));
+        // $user->delete();
+        // その後、ホーム画面に遷移
+        return redirect('/');
     }
 }

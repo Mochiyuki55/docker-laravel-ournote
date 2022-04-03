@@ -10,14 +10,14 @@
 
 <div class="row my-3 text-center">
     <div class="col-md-6">
-        <a class="btn btn-primary" href="/notes/mynote/add">自分のメモを追加する</a>
+        <a class="btn btn-primary" href="/notes/mynote/add">メモ追加</a>
     </div>
 
     <div class="col-md-6">
         <form class="form" action="/notes/mynote" method="post">
             @csrf
             <input class="form-controll" type="text" name="input" value="" placeholder="Titleを入力">
-            <input class="btn btn-secondary" type="submit" name="" value="自分のメモを検索">
+            <input class="btn btn-secondary" type="submit" name="" value="メモ検索">
         </form>
     </div>
 

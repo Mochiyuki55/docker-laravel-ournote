@@ -12,7 +12,7 @@
             </div>
 
             <div class="card mt-4">
-                <div class="card-header">ログイン画面</div>
+                <div class="card-header">ログイン</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
