@@ -16,7 +16,7 @@
             <!-- ユーザーのidをuser_idとしてpostする -->
             <input type="hidden" name="user_id" value="{{$user->id}}">
 
-            <table class="table">
+            <table class="table table-borderless">
                 <tr>
                     <th>Title</th>
                     <td>{{$note->title}}</td>

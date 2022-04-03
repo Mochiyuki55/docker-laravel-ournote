@@ -24,7 +24,8 @@
 </div>
 
 <div class="row">
-    <table class="table">
+
+    <table class="table table-striped">
         <tr>
             <th>Title</th>
             <th>Updated</th>

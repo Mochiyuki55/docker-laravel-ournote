@@ -3,11 +3,12 @@
 @section('title','検索結果')
 @section('content')
 
-    <p>メモの検索結果です 。 <a class="btn btn-secondary" href="/home">戻る</a> </p>
-    <p>検索ワード：{{$input}}</p>
+    <p>メモの検索結果です 。<br>
+    検索ワード：{{$input}}</p>
+    <a class="btn btn-secondary" href="/home">戻る</a>
     @if(!$items)
         <div class="alert alert-danger">
-            <p>該当するメモがありません。</p>
+            <p class="mb-0">該当するメモがありません。</p>
         </div>
     @endif
 

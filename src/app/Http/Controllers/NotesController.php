@@ -8,6 +8,8 @@ use App\Models\Note; // notesテーブルをモデル化した、Noteモデル�
 use Illuminate\Support\Facades\DB; // DBファサードを使用する宣言
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Pagination\Paginator; // ページネーションを使用
+
 
 class NotesController extends Controller
 {
@@ -105,9 +107,11 @@ class NotesController extends Controller
         DB::table('users')->where('id', $request->id)->delete();
         // ユーザーIDに関連するメモを全て削除
         DB::table('notes')->where('user_id', $request->id)->delete();
+
+        // ユーザー情報を論理削除する場合は、以下の処理に書き換える
+        // Users::find($request->id)->delete();
+        // Note::find($request->id)->delete();
         
-        // $user = Users::find($request->input('id'));
-        // $user->delete();
         // その後、ホーム画面に遷移
         return redirect('/');
     }
