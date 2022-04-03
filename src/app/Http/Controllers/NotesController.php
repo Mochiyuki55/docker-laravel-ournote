@@ -26,10 +26,10 @@ class NotesController extends Controller
     // 個人ノートの検索処理
     public function search(Request $request){
 
-        // タイトルが検索ワードと一致するメモを全て取得する
-        $item = Note::where('title',$request->input)->first();
+        // タイトルが検索ワードと部分一致するメモを全て取得する
+        $items = Note::where('title','LIKE','%'.$request->input.'%')->get();
         $param = [
-            'item' => $item,
+            'items' => $items,
             'input' => $request->input,
         ];
         return view('notes.find', $param);
@@ -51,7 +51,7 @@ class NotesController extends Controller
         $form = $request->all(); // リクエストした情報を使用する
         unset($form['_token']); // フォームに追加される非表示フィールド「_token」は削除しておく
         $note->fill($form)->save(); // インスタンスに値を設定して保存
-        return redirect('/notes/mynote');
+        return redirect('/home');
 
     }
 
@@ -73,7 +73,7 @@ class NotesController extends Controller
         $form = $request->all(); // リクエストした情報を使用する
         unset($form['_token']); // フォームに追加される非表示フィールド「_token」は削除しておく
         $note->fill($form)->save();
-        return redirect('/notes/mynote');
+        return redirect('/home');
 
     }
 
@@ -87,6 +87,6 @@ class NotesController extends Controller
     // 個人ノートのメモ削除処理
     public function remove(Request $request){
         Note::find($request->id)->delete();
-        return redirect('/notes/mynote');
+        return redirect('/home');
     }
 }

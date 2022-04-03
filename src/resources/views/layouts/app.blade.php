@@ -18,20 +18,20 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
-            <a class="navbar-brand" href="">Our Notes</a>
+            <a class="navbar-brand" href="">　Our Notes</a>
 
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">ログイン</a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">ユーザー登録　</a>
                         </li>
                     @endif
                 @else
@@ -46,10 +46,14 @@
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
-
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
+                            <a class="dropdown-item" href=""
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                退会する
+                            </a>
                         </div>
                     </li>
                 @endguest
@@ -59,7 +63,9 @@
 
         <main class="py-4">
             <div class="container">
-                <h1>@yield('title')</h1>
+                <div class="row text-center">
+                    <h2>@yield('title')</h2>
+                </div>
                 @yield('content')
             </div>
         </main>

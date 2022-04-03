@@ -1,8 +1,10 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('title','Our Notes　|　メモ編集')
-@section('main')
-    <p>メモを編集し、更新してください。</p>
+@section('title','編集画面')
+@section('content')
+    <div class="text-center">
+        <p>メモを編集し、更新してください。</p>
+    </div>
 
     <div class="row">
         <form class="form" action="/notes/mynote/edit" method="post">
@@ -24,7 +26,7 @@
               value="">{{$note->content}}</textarea>
             </div>
             <input class="btn btn-success" type="submit" name="" value="更新">
-            <a class="btn btn-secondary" href="/notes/mynote">戻る</a>
+            <a class="btn btn-secondary" href="/home">戻る</a>
         </form>
     </div>
 

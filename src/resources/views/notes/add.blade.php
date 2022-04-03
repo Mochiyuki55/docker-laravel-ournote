@@ -1,13 +1,12 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('title','Our Notes　|　新規登録')
-@section('main')
+@section('title','新規登録画面')
+@section('content')
 
-@if(Auth::check())
-    <p>ようこそ、{{$user->name}}さん。</p>
-@endif
-    <hr>
-    <p>ノートに追加したいメモを入力し、登録してください。</p>
+    <div class="text-center">
+        <p>ノートに追加したいメモを入力し、登録してください。</p>
+
+    </div>
 
     <div class="row">
         <form class="form" action="/notes/mynote/add" method="post">
@@ -22,7 +21,7 @@
               <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="10"></textarea>
             </div>
             <input class="btn btn-success" type="submit" name="" value="登録">
-            <a class="btn btn-secondary" href="/notes/mynote">戻る</a>
+            <a class="btn btn-secondary" href="/home">戻る</a>
         </form>
     </div>
 

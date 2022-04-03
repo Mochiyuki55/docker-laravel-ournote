@@ -1,8 +1,11 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('title','Our Notes　|　削除確認')
-@section('main')
-    <p>こちらのメモを削除しますか？</p>
+@section('title','削除確認画面')
+@section('content')
+
+    <div class="text-center">
+        <p>こちらのメモを削除しますか？</p>
+    </div>
 
     <div class="row">
         <form class="form" action="/notes/mynote/delete" method="post">
@@ -25,7 +28,7 @@
             </table>
 
             <input class="btn btn-danger" type="submit" name="" value="削除">
-            <a class="btn btn-secondary" href="/notes/mynote">戻る</a>
+            <a class="btn btn-secondary" href="/home">戻る</a>
         </form>
 
     </div>
