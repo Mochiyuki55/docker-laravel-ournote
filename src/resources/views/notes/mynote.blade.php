@@ -3,8 +3,9 @@
 @section('title','Your Note')
 @section('main')
 
-
-
+    @if(Auth::check())
+    <p>ようこそ、{{$user->name}}さん。</p>
+    @endif
     <hr>
     <p>好きなメモを記録してください。<br>
     このページでは、自分のメモのCRUD処理が可能です。</p>
@@ -27,14 +28,12 @@
     <div class="row">
         <table class="table">
             <tr>
-                <th>ID:</th>
                 <th>Title</th>
                 <th>Updated</th>
                 <th></th>
             </tr>
             @foreach($items as $item)
             <tr>
-                <td>{{$item->id}}</td>
                 <td>{{$item->title}}</td>
                 <td>{{$item->getUpdated()}}</td>
                 <td><a class="btn btn-primary" href="/notes/mynote/edit?id={{$item->id}}">編集</a>

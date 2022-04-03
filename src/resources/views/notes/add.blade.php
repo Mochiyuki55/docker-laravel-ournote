@@ -2,12 +2,17 @@
 
 @section('title','Our Notes　|　新規登録')
 @section('main')
+
+@if(Auth::check())
+    <p>ようこそ、{{$user->name}}さん。</p>
+@endif
+    <hr>
     <p>ノートに追加したいメモを入力し、登録してください。</p>
 
     <div class="row">
         <form class="form" action="/notes/mynote/add" method="post">
             @csrf
-            <input type="hidden" name="user_id" value="1">
+            <input type="hidden" name="user_id" value="{{$user->id}}">
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Title</label>
               <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="">

@@ -11,7 +11,7 @@
             <!-- 選択したnoteのidをpostする -->
             <input type="hidden" name="id" value="{{$note->id}}">
             <!-- ユーザーのidをuser_idとしてpostする -->
-            <input type="hidden" name="user_id" value="1">
+            <input type="hidden" name="user_id" value="{{$user->id}}">
 
             <table class="table">
                 <tr>

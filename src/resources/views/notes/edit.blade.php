@@ -10,7 +10,7 @@
             <!-- 選択したnoteのidをpostする -->
             <input type="hidden" name="id" value="{{$note->id}}">
             <!-- ユーザーのidをuser_idとしてpostする -->
-            <input type="hidden" name="user_id" value="1">
+            <input type="hidden" name="user_id" value="{{$user->id}}">
 
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Title</label>
