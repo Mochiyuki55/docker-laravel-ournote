@@ -29,3 +29,7 @@ Route::post('/notes/mynote/edit', 'App\Http\Controllers\NotesController@update')
 
 Route::get('/notes/mynote/delete', 'App\Http\Controllers\NotesController@delete');
 Route::post('/notes/mynote/delete', 'App\Http\Controllers\NotesController@remove');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
