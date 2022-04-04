@@ -34,3 +34,6 @@ Route::post('/signout', 'App\Http\Controllers\NotesController@deleteUser');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// メール送信
+Route::get('/mail', 'App\Http\Controllers\MailSendController@index');
